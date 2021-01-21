@@ -74,6 +74,7 @@ public class SquircleSmoothCorners extends View {
 
     public void setIterationPrecision(float iterationPrecision) {
         this.iterationPrecision = 1/iterationPrecision;
+        this.invalidate();
     }
 
     public boolean isSquare() {

@@ -100,6 +100,19 @@
                     android:text="@string/radius_text"
                     style="@style/SeekbarText"/>
             </LinearLayout>
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <SeekBar
+                    android:id="@+id/iteration"
+                    android:progress="100"
+                    style="@style/CustomSeekbar" />
+                <TextView
+                    android:id="@+id/iteration_text"
+                    android:text="@string/radius_text"
+                    style="@style/SeekbarText"/>
+            </LinearLayout>
         </LinearLayout>
     </LinearLayout>
 </RelativeLayout>

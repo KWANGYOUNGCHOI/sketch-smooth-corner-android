@@ -24,10 +24,10 @@ public class SquircleActivity extends AppCompatActivity {
     private int screenWidth,screenHeight;
     private float maxWidthRatio = 10.8f;
 
-    private SeekBar widthBar,radiusBar,heightBar;
-    private TextView widthText,radiusText,heightText;
+    private SeekBar widthBar,radiusBar,heightBar, iterationBar;
+    private TextView widthText,radiusText,heightText, iterationText;
     private SquircleSmoothCorners squircleSmoothCorners;
-    private float smoothWidth,smoothRadius,smoothHeight;
+    private float smoothWidth,smoothRadius,smoothHeight, smoothIteration;
 
     private CheckBox tl_check,tr_check,bl_check,br_check,sq_check;
     private boolean tl = true,tr = true,bl = true,br = true;
@@ -55,6 +55,7 @@ public class SquircleActivity extends AppCompatActivity {
         smoothWidth = squircleSmoothCorners.getRectWidth();
         smoothHeight = squircleSmoothCorners.getRectHeight();
         smoothRadius = squircleSmoothCorners.getRoundRadius();
+        smoothIteration = squircleSmoothCorners.getIterationPrecision();
 
         tl_check = findViewById(R.id.tl_check);
         tr_check = findViewById(R.id.tr_check);
@@ -65,9 +66,11 @@ public class SquircleActivity extends AppCompatActivity {
         widthBar = findViewById(R.id.width);
         radiusBar = findViewById(R.id.radius);
         heightBar = findViewById(R.id.height);
+        iterationBar = findViewById(R.id.iteration);
         widthText = findViewById(R.id.width_text);
         radiusText = findViewById(R.id.radius_text);
         heightText = findViewById(R.id.height_text);
+        iterationText = findViewById(R.id.iteration_text);
 
     }
 
@@ -76,6 +79,7 @@ public class SquircleActivity extends AppCompatActivity {
         widthText.setText("Width: " + String.valueOf(squircleSmoothCorners.getRectWidth()) +"f");
         heightText.setText("Height: "+String.valueOf(squircleSmoothCorners.getRectHeight() + "f"));
         radiusText.setText("Radius: "+String.valueOf(squircleSmoothCorners.getRoundRadius() + "f"));
+        iterationText.setText("Iteration: "+String.valueOf(squircleSmoothCorners.getIterationPrecision() + "f"));
 
         widthBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
@@ -142,6 +146,26 @@ public class SquircleActivity extends AppCompatActivity {
                 smoothRadius = progress/4f + 2.0f;
                 radiusText.setText("Radius: " + String.valueOf((smoothRadius)) +"f");
                 squircleSmoothCorners.setRoundRadius(smoothRadius);
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
+
+
+        iterationBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                smoothIteration = progress/200f;
+                iterationText.setText("Iteration: " + String.valueOf((smoothIteration)) +"f");
+                squircleSmoothCorners.setIterationPrecision(smoothIteration);
             }
 
             @Override
