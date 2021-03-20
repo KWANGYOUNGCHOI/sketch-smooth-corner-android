@@ -11,7 +11,25 @@
         android:layout_height="360dp">
         <com.example.martinrgb.roundconrner.smoothcorners.SquircleSmoothCorners
             android:id="@+id/squirclesmoothcorners"
-            style="@style/CanvasStyle"/>
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="100dp"
+            android:layout_marginStart="100dp"
+            android:alpha="0.9"/>
+        <com.example.martinrgb.roundconrner.smoothcorners.SquircleSmoothCorners
+            android:id="@+id/squirclesmoothcorners1"
+            android:layout_width="200dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="100dp"
+            android:layout_marginStart="100dp"
+            android:alpha="0.9"/>
+        <com.example.martinrgb.roundconrner.smoothcorners.SquircleSmoothCorners
+            android:id="@+id/squirclesmoothcorners2"
+            android:layout_width="30000dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="100dp"
+            android:layout_marginStart="100dp"
+            android:alpha="0.9"/>
     </FrameLayout>
     <LinearLayout
         android:id="@+id/ui_layout"

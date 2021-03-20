@@ -13,13 +13,13 @@ public class SquircleSmoothCorners extends View {
 
     private float WIDTH = 400;
     private float HEIGHT = 400;
-    private float SKETCH_SMOOTH_RECT_RADIUS = 4.f;
+    private float SKETCH_SMOOTH_RECT_RADIUS = 50.f;
     private float mCenterX = 0;
     private float mCenterY = 0;
     private Paint mPaint;
     private float iterationPrecision = 0.25f;
     private boolean ROUND_TL = true,ROUND_TR = true,ROUND_BL = true,ROUND_BR = true;
-    private boolean isSquare = true;
+    private boolean isSquare = false;
 
     public SquircleSmoothCorners(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
@@ -32,6 +32,8 @@ public class SquircleSmoothCorners extends View {
 
         mCenterX = w * 1.0f / 2;
         mCenterY = h * 1.0f / 2;
+        WIDTH = w * 1.0f;
+        HEIGHT = h * 1.0f;
     }
 
     private void init() {

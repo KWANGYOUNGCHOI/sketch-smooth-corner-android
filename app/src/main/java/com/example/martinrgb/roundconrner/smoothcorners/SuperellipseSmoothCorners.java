@@ -7,6 +7,7 @@ import android.graphics.Paint;
 import android.graphics.Path;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 
 public class SuperellipseSmoothCorners extends View {
@@ -124,7 +125,9 @@ public class SuperellipseSmoothCorners extends View {
             ry *= width/height;
         }
 
+        int count = 0;
         for(float i = 0.f;i<360;i ++){
+            count++;
             float angle = (float)(i * 2.f * Math.PI / 360.0);
             float cosX = (float) Math.cos(angle);
             float x = (float)Math.pow(Math.abs(cosX),rx/100.f)*50.f*Math.abs(cosX + 0.0000000001f)/(cosX + 0.0000000001f) + 50.f;
@@ -163,6 +166,7 @@ public class SuperellipseSmoothCorners extends View {
                 path.lineTo(percentX*width+posX, percentY*height+posY);
 
         }
+        Log.e("Float loop count : ", String.valueOf(count));
 
         path.close();
 
